@@ -1,5 +1,10 @@
 import { actionTypes } from 'common/enums';
 
+export const getInputValue = (payload) => ({
+  type: actionTypes.JOB_SEARCH,
+  payload
+});
+
 export const getAllJobsFetch = () => ({
   type: actionTypes.GET_ALL_JOBS_FETCH
 });
