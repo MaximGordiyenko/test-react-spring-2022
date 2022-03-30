@@ -1,6 +1,6 @@
 import { takeLatest, put, getContext } from 'redux-saga/effects';
-import { actionTypes } from 'common/enums';
-import { getAllJobsSuccess, getAllJobsError } from 'store/actions';
+import { actionTypes } from '../../../common/enums';
+import { getAllJobsSuccess, getAllJobsError } from '../../actions';
 
 function* getAllJobs() {
   const jobService = yield getContext('jobService');

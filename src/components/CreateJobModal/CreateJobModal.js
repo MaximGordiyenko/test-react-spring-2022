@@ -24,15 +24,15 @@ const CreateJobModal = ({ isLoading, isVisible, onToggleModal, value, handleInpu
       <ContentWrapper>
         <FlexRow>
           <Input register={register} name="user_name" label="Customer Name" value={value.user_name}
-                 handleInputChange={handleInputChange}/>
+                 onChange={handleInputChange}/>
         </FlexRow>
         <FlexRow>
           <Input register={register} name="category" label="Category" value={value.category}
-                 handleInputChange={handleInputChange}/>
+                 onChange={handleInputChange}/>
         </FlexRow>
         <FlexRow>
           <Textarea register={register} name="description" label="Add Description" value={value.description}
-                    handleInputChange={handleInputChange}/>
+                    onChange={handleInputChange}/>
         </FlexRow>
         <FlexRow>
           <Button title="Cancel" type="secondary" margin="0 20px 0 0" onClick={onToggleModal}/>

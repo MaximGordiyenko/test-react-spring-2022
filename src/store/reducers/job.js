@@ -1,4 +1,4 @@
-import { actionTypes } from 'common/enums';
+import { actionTypes } from '../../common/enums';
 
 const defaultState = {
   list: [],

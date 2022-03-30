@@ -1,4 +1,4 @@
-import { actionTypes } from 'common/enums';
+import { actionTypes } from '../../common/enums';
 
 export const getInputValue = (payload) => ({
   type: actionTypes.JOB_SEARCH,

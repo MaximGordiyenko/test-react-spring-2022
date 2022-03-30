@@ -38,13 +38,12 @@ const JobList = () => {
       );
     };
 
-    console.log(inputValue);
     return (
       <FlexOneContainer>
         <Wrapper>
           <Title>Job List</Title>
           <SearchWrapper>
-            <Input placeholder="Search" name="search" value={inputValue.search} handleInputChange={handleInputChange}/>
+            <Input placeholder="Search" name="search" value={inputValue.search} onChange={handleInputChange}/>
           </SearchWrapper>
           {
             list && result && result.length === 0 ?

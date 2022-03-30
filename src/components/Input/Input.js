@@ -1,6 +1,6 @@
 import { CloseButton, Error, FlexColumn, InputRow, Label, StyledInput } from './styled';
 
-const Input = ({ name, register, rules, error, inputConfig = {}, reset, wrapperStyle, placeholder, label, value, handleInputChange, ...otherProps }) => {
+const Input = ({ name, register, rules, error, inputConfig = {}, reset, wrapperStyle, placeholder, label, value, onChange, ...otherProps }) => {
 
   return (
     <FlexColumn>
@@ -9,7 +9,7 @@ const Input = ({ name, register, rules, error, inputConfig = {}, reset, wrapperS
         <StyledInput
           name={name}
           value={value}
-          onChange={handleInputChange}
+          onChange={onChange}
           {...otherProps}
           {...inputConfig}
           bigRightPadding={Boolean(reset)}

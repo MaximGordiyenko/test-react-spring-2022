@@ -1,6 +1,6 @@
 import { Error, FlexColumn, Label, StyledTextarea } from './styled';
 
-const Textarea = ({ label, value, name, register, rules = {}, error = {}, handleInputChange, ...props }) => (
+const Textarea = ({ label, value, name, register, rules = {}, error = {}, onChange, ...props }) => (
   <FlexColumn>
     {label && <Label>{label}</Label>}
     <StyledTextarea
@@ -9,7 +9,7 @@ const Textarea = ({ label, value, name, register, rules = {}, error = {}, handle
       {...register(name, rules)}
       name={name}
       value={value}
-      onChange={handleInputChange}
+      onChange={onChange}
     />
     {Boolean(error?.type) && <Error>{error.message || 'Invalid field'}</Error>}
   </FlexColumn>
