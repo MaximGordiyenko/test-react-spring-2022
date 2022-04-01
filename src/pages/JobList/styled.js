@@ -22,13 +22,16 @@ export const SearchWrapper = styled.div`
 export const Row = styled.div`
   display: flex;
   align-items: center;
+  flex-direction: row;
 `;
 
 export const NameSpan = styled.span`
   text-transform: capitalize;
 `;
 
-export const CapitalizedBoldText = styled.div`
+export const CapitalizedBoldText = styled.div.attrs({
+  className: 'CapitalizedBoldText'
+})`
   font-weight: 600;
   font-size: 14px;
   line-height: 17px;
@@ -65,7 +68,9 @@ export const ServiceLeftBlock = styled.div`
   align-items: center;
 `;
 
-export const GrayTitle = styled.p`
+export const GrayTitle = styled.label.attrs({
+  className: 'GrayTitle'
+})`
   font-weight: 600;
   font-size: 12px;
   line-height: 14px;
@@ -73,7 +78,9 @@ export const GrayTitle = styled.p`
   margin: 0 0 4px;
 `;
 
-export const Column = styled.div`
+export const Column = styled.div.attrs({
+  className: 'MainColumn'
+})`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -88,6 +95,7 @@ export const ColumnAlignRight = styled(Column)`
 `;
 
 export const MainColumn = styled(Column)`
+
   padding-right: 25px;
 `;
 

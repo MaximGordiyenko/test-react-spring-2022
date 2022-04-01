@@ -4,7 +4,6 @@ import { getAllJobsFetch, getInputValue } from '../../store/actions';
 import { CreateJobModal, Input } from '../../components';
 
 import { Button, FlexOneContainer, SearchWrapper, Title, Wrapper } from './styled';
-import { Job } from "./Job";
 import { List } from "./List";
 
 const JobList = () => {
@@ -18,8 +17,8 @@ const JobList = () => {
 
     const dispatch = useDispatch();
 
-    const { list } = useSelector((state) => state.job);
-    const { result } = useSelector(state => state.job);
+    const { list } = useSelector((state) => state?.job);
+    const { result } = useSelector(state => state?.job);
 
     useEffect(() => {
       dispatch(getAllJobsFetch());
@@ -38,6 +37,8 @@ const JobList = () => {
       );
     };
 
+    const job = list && result && result.length === 0 ? list : result;
+
     return (
       <FlexOneContainer>
         <Wrapper>
@@ -46,9 +47,14 @@ const JobList = () => {
             <Input placeholder="Search" name="search" value={inputValue.search} onChange={handleInputChange}/>
           </SearchWrapper>
           {
-            list && result && result.length === 0 ?
-              <List list={list}/>
-              : <Job result={result}/>
+            job?.map(({ id, category, description, date_created, status, user_name }) => {
+              return <List key={id}
+                           category={category}
+                           description={description}
+                           date_created={date_created}
+                           status={status} user_name={user_name}
+              />;
+            })
           }
           <Button onClick={handleToggleCreateJobModal}>
             Add a job
