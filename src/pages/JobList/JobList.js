@@ -49,6 +49,7 @@ const JobList = () => {
           {
             job?.map(({ id, category, description, date_created, status, user_name }) => {
               return <List key={id}
+                           id={id}
                            category={category}
                            description={description}
                            date_created={date_created}
