@@ -11,8 +11,9 @@ import {
   ServiceWrapper
 } from "./styled";
 import { Input } from "../../components";
+import { Highlighted } from "../../components/Highlighted";
 
-export const List = ({ id, category, description, date_created, status, user_name }) => {
+export const List = ({ category, description, date_created, status, user_name, inputValue }) => {
   const [state, setState] = useState({
     editing: false,
     changedUserName: '',
@@ -75,7 +76,6 @@ export const List = ({ id, category, description, date_created, status, user_nam
   };
 
   const handleEditingDone = ({ keyCode }) => {
-    console.log(state);
     if (keyCode === 13) {
       setState({
         ...state,
@@ -104,7 +104,7 @@ export const List = ({ id, category, description, date_created, status, user_nam
                 <Row>
                   <GrayTitle>
                     <NameSpan style={viewStyle} onDoubleClick={editDescription}>
-                      {state.changedUserName}
+                      <Highlighted text={state.changedUserName} highlight={inputValue.search}/>
                     </NameSpan>
                     <Input type="text"
                            style={editStyle}
@@ -115,7 +115,9 @@ export const List = ({ id, category, description, date_created, status, user_nam
                   </GrayTitle>
                   <GrayTitle>
                     <NameSpan style={viewStyle} onDoubleClick={editCategory}>
-                      {state.changedCategory ? `${state.changedUserName ? ' - ' : ''}${state.changedCategory}` : ''}
+                      <Highlighted
+                        text={state.changedCategory ? `${state.changedUserName ? ' - ' : ''}${state.changedCategory}` : ''}
+                        highlight={inputValue.search}/>
                     </NameSpan>
                     <Input type="text"
                            style={editStyle}
@@ -144,7 +146,7 @@ export const List = ({ id, category, description, date_created, status, user_nam
           <ServiceInfoRow>
             <GrayTitle>
               <NameSpan style={viewStyle} onDoubleClick={editUserName}>
-                {state.changedDescription}
+                <Highlighted text={state.changedDescription} highlight={inputValue.search}/>
               </NameSpan>
               <Input type="text"
                      style={editStyle}

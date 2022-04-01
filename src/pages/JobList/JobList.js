@@ -53,7 +53,9 @@ const JobList = () => {
                            category={category}
                            description={description}
                            date_created={date_created}
-                           status={status} user_name={user_name}
+                           status={status}
+                           user_name={user_name}
+                           inputValue={inputValue}
               />;
             })
           }
