@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import job from './job';
-import { list } from "./list";
+import { CreateJob} from "./CreateJob";
 
 const rootReducer = combineReducers({
   job,
-  list,
+  CreateJob,
 });
 
 export default rootReducer;

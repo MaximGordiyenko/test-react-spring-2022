@@ -6,7 +6,6 @@ const Textarea = ({ label, value, name, register, rules = {}, error = {}, onChan
     <StyledTextarea
       component="textarea"
       {...props}
-      {...register(name, rules)}
       name={name}
       value={value}
       onChange={onChange}

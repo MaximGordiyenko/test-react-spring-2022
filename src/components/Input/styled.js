@@ -46,7 +46,9 @@ export const InputRow = styled.div`
   align-items: center;
 `;
 
-export const StyledInput = styled.input`
+export const StyledInput = styled.input.attrs({
+  className: 'input'
+})`
   background-color: ${({ theme }) => theme.colors.LIGHT_GRAY_2};
   border: none;
   border-radius: 8px;
