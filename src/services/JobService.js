@@ -1,5 +1,5 @@
-import { apiPath, httpMethods } from 'common/enums';
-import { BASE_API_URL } from 'common/constants';
+import { apiPath, httpMethods } from '../common/enums';
+import { BASE_API_URL } from '../common/constants';
 
 class JobService {
   #httpService;
@@ -27,6 +27,12 @@ class JobService {
     });
   }
 
+  delete(id){
+    return this.#httpService.makeRequest(this.#baseUrl, {
+      method: httpMethods.DELETE,
+      queryParams: id
+    });
+  }
 }
 
 export default JobService;

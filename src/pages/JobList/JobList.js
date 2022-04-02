@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createJob, getAllJobsFetch, getInputValue } from '../../store/actions';
+import { getAllJobsFetch, getInputValue } from '../../store/actions';
 import { CreateJobModal, Input } from '../../components';
 import { Button, FlexOneContainer, SearchWrapper, Title, Wrapper } from './styled';
 import { List } from "./List";
@@ -78,12 +78,14 @@ const JobList = () => {
                         user_name
                       }) => <List
                 key={id}
+                id={id}
                 category={category}
                 description={description}
                 date_created={date_created}
                 status={status}
                 user_name={user_name}
                 inputValue={inputValue}
+                dispatch={dispatch}
               />
             )
           }

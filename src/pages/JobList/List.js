@@ -12,8 +12,9 @@ import {
 } from "./styled";
 import { Input } from "../../components";
 import { Highlighted } from "../../components/Highlighted";
+import { deleteJobId } from "../../store/actions";
 
-export const List = ({ category, description, date_created, status, user_name, inputValue }) => {
+export const List = ({ id, category, description, date_created, status, user_name, inputValue, dispatch }) => {
   const [state, setState] = useState({
     editing: false,
     changedUserName: '',
@@ -93,11 +94,14 @@ export const List = ({ category, description, date_created, status, user_name, i
     editStyle.display = 'none';
   }
 
+  const deleteId = (e, id) => {
+    dispatch(deleteJobId(id))
+  };
+
   return (
     <>
       <Fragment>
-        <ServiceWrapper onClick={() => {
-        }}>
+        <ServiceWrapper>
           <ServiceInfoRow>
             <ServiceLeftBlock>
               <MainColumn>
@@ -133,7 +137,7 @@ export const List = ({ category, description, date_created, status, user_name, i
               </MainColumn>
             </ServiceLeftBlock>
 
-            <ColumnAlignRight>
+            <ColumnAlignRight onClick={(e) => {deleteId(e, id)}}>[ X ]
               <GrayTitle marginBottom={4}>
                 Requested date:
               </GrayTitle>

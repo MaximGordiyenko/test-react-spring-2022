@@ -7,12 +7,14 @@ const defaultState = {
 
 function job(state = defaultState, { type, payload }) {
   switch (type) {
+
     case actionTypes.GET_ALL_JOBS_SUCCESS: {
       return {
         ...state,
         list: payload
       };
     }
+
     case actionTypes.JOB_SEARCH: {
       return {
         ...state,
@@ -26,6 +28,21 @@ function job(state = defaultState, { type, payload }) {
         })
       };
     }
+
+    case actionTypes.CREATE_JOB: {
+      return {
+        ...state,
+        list: [...state.list, payload]
+      };
+    }
+
+    case actionTypes.DELETE_JOB_BY_ID: {
+      return {
+        ...state,
+        list: state.list.filter(x => x.id !== payload)
+      };
+    }
+
     default:
       return state;
   }

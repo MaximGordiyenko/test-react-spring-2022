@@ -22,4 +22,9 @@ export const getAllJobsError = payload => ({
 export const createJob = payload => ({
   type: actionTypes.CREATE_JOB,
   payload
-})
+});
+
+export const deleteJobId = payload => ({
+  type: actionTypes.DELETE_JOB_BY_ID,
+  payload
+});
